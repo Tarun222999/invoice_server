@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>{{Title}}</title>
+    <style type="text/css">
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 200%;
+            padding: 20px;
+        }
+
+        #logo {
+            max-width: 100px;
+            height: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .blue-text {
+            color: blue;
+        }
+
+        #totals {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        #valid-until {
+            float: left;
+            color: blue;
+        }
+
+        #totals {
+            margin-top: 20px;
+            text-align: right;
+            position: relative;
+        }
+
+        #totals::before,
+        #totals::after {
+            content: "";
+            display: block;
+            border-top: 1px dashed black;
+            margin: 10px 0;
+        }
+
+        #totals p {
+            margin-bottom: 10px;
+        }
+
+        .blue-text {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img id="logo"
+         src="logo.jpg"
+         alt="Logo">
+    <h1>{{Title}}</h1>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each arr as |item|}}
+            <tr>
+                <td>{{item.name}}</td>
+                <td class="blue-text">
+                    {{item.quantity}}
+                </td>
+                <td>{{item.rate}}</td>
+                <td>{{item.total}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div id="totals">
+        <p>Total INR: {{Total}}</p>
+        <p>GST: {{GST}}</p>
+        <p class="blue-text">Grand Total:
+            {{Grand-Total}}</p>
+    </div>
+    <div id="valid-until">
+        <p>Valid Until: {{valid-until}}</p>
+    </div>
+</body>
+
+</html>
