@@ -84,7 +84,7 @@ export const loginController = async (req, res) => {
             expiresIn: "7d",
         });
 
-
+        console.log(token);
         res.status(200).send({
             success: true,
             message: "login successfully",
